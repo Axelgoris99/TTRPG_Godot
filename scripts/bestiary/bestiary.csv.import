@@ -1,0 +1,15 @@
+[remap]
+
+importer="EnemyEditorImporter"
+type="Resource"
+uid="uid://dumsxpevph0ln"
+path="res://.godot/imported/bestiary.csv-649b79bc35447771efa58456b5688504.tres"
+
+[deps]
+
+source_file="res://scripts/bestiary/bestiary.csv"
+dest_files=["res://.godot/imported/bestiary.csv-649b79bc35447771efa58456b5688504.tres"]
+
+[params]
+
+myOption=false

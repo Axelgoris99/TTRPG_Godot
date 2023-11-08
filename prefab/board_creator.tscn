@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://d26r4neh6pfj2"]
+
+[ext_resource type="Script" path="res://scripts/PreProduction/BoardCreator.cs" id="1_rvypj"]
+[ext_resource type="Resource" uid="uid://b7tq5fx645cr5" path="res://import/levels/level.tres" id="2_0qmaw"]
+[ext_resource type="PackedScene" uid="uid://nwg1g03bkqrp" path="res://prefab/Tile.tscn" id="2_w23s8"]
+[ext_resource type="PackedScene" uid="uid://cfxa42kl1jrgh" path="res://prefab/TileSelectionIndicator.tscn" id="3_o3kd1"]
+
+[node name="Board" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.106481, 0, 0)
+script = ExtResource("1_rvypj")
+tileViewPrefab = ExtResource("2_w23s8")
+tileSelectionIndicatorPrefab = ExtResource("3_o3kd1")
+levelData = ExtResource("2_0qmaw")

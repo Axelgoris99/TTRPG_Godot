@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfxa42kl1jrgh"]
+
+[ext_resource type="Material" uid="uid://jpk1ars11aic" path="res://material/Selection.tres" id="1_hh74s"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_35bvu"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CubeCorner" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.3, 0.5, 0, 0.4)
+mesh = SubResource("BoxMesh_35bvu")
+surface_material_override/0 = ExtResource("1_hh74s")
+
+[node name="CubeCorner2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-09, 0, 0.3, 0, 0.1, 0, -0.1, 0, -1.31134e-08, 0.4, 0, -0.5)
+mesh = SubResource("BoxMesh_35bvu")
+surface_material_override/0 = ExtResource("1_hh74s")
+
+[node name="CubeCorner3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.3, 0.5, 0, -0.4)
+mesh = SubResource("BoxMesh_35bvu")
+surface_material_override/0 = ExtResource("1_hh74s")
+
+[node name="CubeCorner4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-09, 0, 0.3, 0, 0.1, 0, -0.1, 0, -1.31134e-08, 0.4, 0, 0.5)
+mesh = SubResource("BoxMesh_35bvu")
+surface_material_override/0 = ExtResource("1_hh74s")
+
+[node name="CubeCorner5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.3, -0.5, 0, -0.4)
+mesh = SubResource("BoxMesh_35bvu")
+surface_material_override/0 = ExtResource("1_hh74s")
+
+[node name="CubeCorner6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-09, 0, 0.3, 0, 0.1, 0, -0.1, 0, -1.31134e-08, -0.4, 0, -0.5)
+mesh = SubResource("BoxMesh_35bvu")
+surface_material_override/0 = ExtResource("1_hh74s")
+
+[node name="CubeCorner7" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-09, 0, 0.3, 0, 0.1, 0, -0.1, 0, -1.31134e-08, -0.4, 0, 0.5)
+mesh = SubResource("BoxMesh_35bvu")
+surface_material_override/0 = ExtResource("1_hh74s")
+
+[node name="CubeCorner8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.3, -0.5, 0, 0.4)
+mesh = SubResource("BoxMesh_35bvu")
+surface_material_override/0 = ExtResource("1_hh74s")
