@@ -34,9 +34,22 @@ public partial class BoardInspectorEditor : BoxContainer
         save.Pressed += OnSavePressed;
         load.Pressed += OnLoadPressed;
 
+        clear.Pressed += UpdateMarker;
+        grow.Pressed += UpdateMarker;
+        shrink.Pressed += UpdateMarker;
+        growArea.Pressed += UpdateMarker;
+        shrinkArea.Pressed += UpdateMarker;
+        save.Pressed += UpdateMarker;
+        load.Pressed += UpdateMarker;
+
         EditorPlugin test = new EditorPlugin();
         // This is to get the current selected node that should have the board creator script.
-        board = test.GetEditorInterface().GetSelection().GetSelectedNodes()[0] as BoardCreator;
+        board = test.GetEditorInterface().GetEditedSceneRoot() as BoardCreator;
+        var newPos = test.GetEditorInterface().GetSelection().GetSelectedNodes()[0] as Tile;
+        if (newPos is Tile)
+        {
+            board.UpdatePos(newPos.pos);
+        }
     }
 
     private void OnClearPressed()
@@ -72,6 +85,11 @@ public partial class BoardInspectorEditor : BoxContainer
     private void OnLoadPressed()
     {
         board.Load();
+    }
+
+    private void UpdateMarker()
+    {
+        board.UpdateMarker();
     }
 }
 #endif

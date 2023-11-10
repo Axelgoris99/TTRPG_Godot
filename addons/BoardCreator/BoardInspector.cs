@@ -7,7 +7,7 @@ public partial class BoardInspector : EditorInspectorPlugin
 {
     public override bool _CanHandle(GodotObject @object)
     {
-        if (@object.HasMethod("GrowArea"))
+        if (@object.HasMethod("GrowArea") || @object.HasMethod("Shrink"))
         {
             // ParseBegin will be called on every file that returns true.
             return true;

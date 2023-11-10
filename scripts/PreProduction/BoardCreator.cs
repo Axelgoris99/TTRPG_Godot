@@ -7,15 +7,20 @@ public partial class BoardCreator : Node
     PackedScene tileViewPrefab;
     [Export]
     PackedScene tileSelectionIndicatorPrefab;
+    [Export]
+    string levelName = "level";
 
     Node3D marker
     {
         get
         {
-            if (_marker == null)
+            if (_marker == null || _marker.GetParent() == null)
             {
                 Node3D instance = tileSelectionIndicatorPrefab.Instantiate() as Node3D;
                 _marker = instance;
+                AddChild(_marker);
+                _marker.Owner = this;
+                _marker.Name = "TileSelectionIndicator";
             }
             return _marker;
         }
@@ -131,6 +136,12 @@ public partial class BoardCreator : Node
         ShrinkSingle(pos);
     }
 
+    public void UpdatePos(Vector2I newPos)
+    {
+        pos = newPos;
+        UpdateMarker();
+    }
+
     public void UpdateMarker()
     {
         Tile t = tiles.ContainsKey(pos) ? tiles[pos] : null;
@@ -142,19 +153,23 @@ public partial class BoardCreator : Node
 
         foreach (var child in GetChildren())
         {
-            child.Free();
+            if (child == _marker)
+            {
+                continue;
+            }
+            child.QueueFree();
         }
         tiles.Clear();
     }
 
     public void Save()
     {
-        string filePath = "res://import/levels/level";
+        string filePath = "res://import/levels/";
         LevelData board = new LevelData();
         board.tiles = new Godot.Collections.Array<Vector3>();
         foreach (Tile t in tiles.Values)
             board.tiles.Add(new Vector3(t.pos.X, t.height, t.pos.Y));
-        string fileName = string.Format("{0}.tres", filePath);
+        string fileName = string.Format("{0}{1}.tres", filePath, levelName);
 
         ResourceSaver.Save(board, fileName);
         // Necessary otherwise, the cache is used and the file will not be the right one in the inspector. (But will be on next launch...)
